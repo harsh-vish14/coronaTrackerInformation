@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Covid-19 Tracker</title>
+
+  <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/loader.css">
+</head>
+<style>
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html {
+    overflow-x: hidden;
+    text-align: center;
+    scroll-behavior: smooth;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  :root ::selection {
+    color: rgb(255, 0, 0);
+    background: rgba(255, 255, 255, 0);
+    text-shadow: 0px 0px 4px rgb(255, 230, 0);
+  }
+
+  .shape {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    transition: 0.4s;
+    margin-left: 30px;
+  }
+
+
+
+  .nav-active,
+  .hovered:hover {
+    transform: translateY(-1px);
+    transition: 0.2s;
+    filter: drop-shadow(0px 0px 4px rgb(255, 230, 0));
+    font-weight: 900;
+  }
+
+  .up-arrow {
+    position: absolute;
+    left: 30%;
+  }
+
+  @media (max-width: 950px) {
+
+    .main {
+      margin-top: 100px;
+    }
+  }
+
+  section {
+    display: block;
+  }
+</style>
+
+<body style="text-align: center;">
+  <div id="loader" style="text-align: center;">
+    <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_33xG9R.json" background="transparent"
+      speed="1" style="width: 300px; height: 300px;margin: auto;" loop autoplay id="loader-animation">
+    </lottie-player>
+    <br><span style="font-size: 50px;">Loading.....</span>
+  </div>
+  <!-- nav bar start -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html" style="margin-left: -90px;"><img src="icon.svg" alt="logo" height="30%"
+        width="30%"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav" style="margin-left: 40%;">
+        <li class="nav-item nav-active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item hovered">
+          <a class="nav-link" href="doctor-appointment.html">doctor</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- nav bar end -->
+  <div>
+    <lottie-player id="corona" src="https://assets5.lottiefiles.com/packages/lf20_0r0csU.json" background="transparent"
+      speed="1" style="width: 300px; height: 300px;" loop autoplay>
+    </lottie-player>
+  </div>
+  <section class="hero-section">
+    <div class="container">
+      <div class="row hero-text" style="text-align: center;">
+        <div class="col-md-8">
+          <div id="title">Corona Virus Tracker</div>
+          <div id="sub-title">#corona se daro na</div>
+          <a href="doctor-appointment.html" id="doctor-please">
+            <i class="fa fa-user-md" aria-hidden="true"
+              style="padding-right: 5px; margin-top: 70px; margin-bottom: 70px;">
+            </i>Doctor Appointment</a>
+        </div>
+        <div class="col-md-4" id="lottie-human">
+          <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_qFttfS.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px" loop autoplay></lottie-player>
+        </div>
+      </div>
+    </div>
+    <div class="world-heading" style="display: contents;">World <i class='fa fa-globe-asia' aria-hidden='true'></i>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-6">
+          <div class="num" id="Cases">0</div>
+          <div class="sub">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_Z7Vcyw.json" background="transparent"
+              speed="1" style="width: 30px; height: 30px;" class="up-arrow" loop autoplay></lottie-player>
+            <span id="new-Cases" style="color: tomato;">0</span>
+          </div>
+          <h3>Cases</h3>
+        </div>
+        <div class="col-lg-4 col-md-4 col-6">
+          <div class="num" id="Recover">0</div>
+          <div class="sub">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_Z7Vcyw.json" background="transparent"
+              speed="1" style="width: 30px; height: 30px;" class="up-arrow" loop autoplay></lottie-player>
+            <span id="new-Recover" style="color: rgb(15, 124, 15);">0</span>
+          </div>
+          <h3>Recovers</h3>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-12">
+          <div class="num" id="Deads">0</div>
+          <div class="sub">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_Z7Vcyw.json" background="transparent"
+              speed="1" style="width: 30px; height: 30px;" class="up-arrow" loop autoplay></lottie-player>
+            <span id="new-Deads" style="color: orange;">0</span>
+          </div>
+          <h3>Deaths</h3>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="main" style="margin-top: 100px;">
+    <!-- Information start -->
+    <!-- Pills navs -->
+    <ul class="nav nav-pills mb-3 " id="ex1" role="tablist" style="justify-content: center;">
+      <li class="nav-item" role="presentation" data-aos="fade-right" data-aos-offset="200">
+        <a class="nav-link active" id="ex1-tab-1" data-toggle="pill" href="#ex1-pills-1" role="tab"
+          aria-controls="ex1-pills-1" aria-selected="false">Information <i class="fa fa-arrow-right"
+            aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item" role="presentation" data-aos="fade-center" data-aos-offset="200">
+        <a class="nav-link btn" id="ex1-tab-2" data-toggle="pill" href="#ex1-pills-2" role="tab"
+          aria-controls="ex1-pills-2" aria-selected="true">World's Corona Result</a>
+      </li>
+      <li class="nav-item" role="presentation" data-aos="fade-left" data-aos-offset="200">
+        <a class="nav-link btn" id="ex1-tab-3" data-toggle="pill" href="#ex1-pills-3" role="tab"
+          aria-controls="ex1-pills-3" aria-selected="false">India's Corona Result</a>
+      </li>
+      <li class="nav-item" role="presentation" data-aos="fade-left" data-aos-offset="200">
+        <a class="nav-link btn" id="ex1-tab-4" data-toggle="pill" href="#ex1-pills-4" role="tab"
+          aria-controls="ex1-pills-4" aria-selected="false">Graphical representation</a>
+      </li>
+
+
+    </ul>
+    <!-- Pills navs -->
+
+    <!-- Pills content -->
+    <div class="tab-content" id="ex1-content">
+      <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+      </div>
+      <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+        <div class="container-fluid">
+          <div class="container">
+
+            <input type="search" placeholder="Search Country here...." class="form-control search-input"
+              data-table="customers-list" style="width: 100%;" />
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover mt32 customers-list" id="countries" style="text-align: left;">
+              <tr style="color: #121213;" id="Table-header-countries" class="thead-dark">
+                <th>Countries</th>
+                <th>Total Cases</th>
+                <th>Total Recover</th>
+                <th>Total Deaths</th>
+                <th>Active</th>
+              </tr>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+        <div class="container-fluid">
+          <div class="container">
+
+            <input type="search" placeholder="Search India State Here...." class="form-control search-input"
+              data-table="state-list" style="width: 100%;" />
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover mt32 state-list" id="states" style="text-align: left;">
+              <tr style="color: #121213;" id="Table-header-india" class="thead-dark">
+                <th>states in India</th>
+                <th>Total Cases</th>
+                <th>Total Recover</th>
+                <th>Total Deaths</th>
+                <th>Active</th>
+              </tr>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="ex1-pills-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+        <div class="container-fluid">
+          <p style="font-size: 1.563rem;">Corona Cases in india of 30 days</p><br><canvas id="IndiaChart"
+            width="400"></canvas>
+          <p style="font-size: 1.563rem;">Corona Cases in india states wise</p><br><canvas id="statesChart"
+            width="200%"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <!-- Pills content -->
+    <!-- Information end -->
+    <h2 style="font-weight: 800; color: #121213;" data-aos="fade-center" data-aos-offset="200" data-aos-delay="50">
+      About Covid - 19</h2>
+    <div class="container-fluid">
+      <div class="container" id="about-corona">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <img
+              src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+              alt="Corona" width="90%" height="90%" data-aos="fade-right" data-aos-offset="200" data-aos-delay="50"
+              class="image" style="border-radius: 20px;">
+
+          </div>
+          <div class="col-lg-6 col-12" id="text-about" data-aos="fade-left" data-aos-offset="200" data-aos-delay="50">
+            Coronaviruses are a
+            large family of viruses
+            that are actually
+            common throughout the world and can cause respiratory illness in people and animals. There are several known
+            coronaviruses that infect people and usually only cause mild respiratory disease, such as the common cold.
+            However, at least two previously identified coronaviruses have caused severe illness — Severe Acute
+            Respiratory Syndrome (SARS) coronaviruses and Middle East Respiratory Syndrome (MERS) coronavirus.
+            <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1" id="more" target="_blank"
+              style="display: block; text-align: center;">More
+              <i class="fa fa-arrow-circle-right " aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="safety-precausition" style="text-align: center;">
+      <h2 style="margin-top: 50px; color:black; font-weight: 800;">8 Steps Prevention Against Covid - 19</h2>
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_buqccM.json" background="transparent"
+                  speed="1" style="width: 100%;height: 100%;" loop autoplay></lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Stay Home Stay Safe.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_oGbdoA.json"
+                  background="transparent" speed="1" style="width: 100%;height: 100%;" loop autoplay>
+                </lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Always Wear Marks.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_ym2HXd.json"
+                  background="transparent" speed="1" style="width: 100%;height: 100%;" loop autoplay>
+                </lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Work From Home.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_tJTMQ4.json"
+                  background="transparent" speed="1" style="width: 100%;height: 100%;" loop autoplay>
+                </lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Take Daily Temperature Check.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_CYBIbn.json" background="transparent"
+                  speed="1" style="width: 100%;height: 100%;" loop autoplay></lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Hand Wash For 20 second.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_aGWCIX.json"
+                  background="transparent" speed="1" style="width: 100%;height: 100%;" loop autoplay>
+                </lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Keep Social Distance.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_0iB3jy.json" background="transparent"
+                  speed="1" style="width: 100%;height: 100%;" loop autoplay></lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Do Sanitization before use</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="50" data-aos-offset="200"
+              data-aos-easing="ease-in-out">
+              <div class="col">
+                <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_YtuPR9.json"
+                  background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                </lottie-player>
+              </div>
+              <div class="col">
+                <p class="heading">Disinfect Your Electronic Device Regularly</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="feedback" style="padding-top: 50px;width: 100%;background-color: #121213;color: white;">
+      <p style="font-size: 25px;">Thank's to Support US</p>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-12">
+              <form style="text-align: left;" class="feedback-form" id="User">
+
+                <div class="form-group">
+                  <label for="exampleInputText">Name</label>
+                  <input class="form-control" type="text" placeholder="Name..." id="name" name="username" required><br>
+
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" name="useremail" required>
+
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" name="message" id="textarea"
+                      placeholder="Enter your message..."></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 20px;" id="submit" name="submit"
+                  onclick="clicked()">Submit</button>
+              </form>
+            </div>
+            <div class="col-lg-4 col-12">
+              <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_AQ3M8U.json" background="transparent"
+                speed="1" style="width: 100%; height: 100%;justify-items: left;" loop autoplay></lottie-player>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MDB -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+  <!-- <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".image").tilt({
+        maxTilt: 50,
+        perspective: 1000,   // Transform perspective, the lower the more extreme the tilt gets.
+        easing: "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+        scale: 1.02,      // 2 = 200%, 1.5 = 150%, etc..
+        speed: 1000,    // Speed of the enter/exit transition.
+        transition: false,   // Set a transition on enter/exit.
+        disableAxis: null,   // What axis should be disabled. Can be X or Y.
+        reset: true,   // If the tilt effect has to be reset on exit.
+        glare: true,  // Enables glare effect
+        maxGlare: 1
+      })
+    })
+  </script> -->
+  <script src="script/workfunction.js"></script>
+  <script src="script/chart.js"></script>
+  <script>
+    function clicked() {
+      alert("Sorry this form is not working because this website is static website");
+    }
+  </script>
+  <script>
+    setTimeout(function () {
+      document.getElementById("loader").style.display = "none";
+    }, 2000)
+  </script>
+</body>
+
+</html>
