@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800;600&display=swap");
+* {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.button-hover {
+  margin-top: 50px;
+  transition: 0.2s;
+  transform: scale(1);
+}
+#doctor-please {
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: 20px;
+  filter: drop-shadow(0px 0px 10px red);
+  position: relative;
+  /* z-index: 1; */
+}
+#doctor-please:active {
+  border: 3px solid #121213;
+  transition: 0.2s;
+}
+#corona {
+  position: absolute;
+  z-index: -1100;
+  left: -70px;
+  top: -29px;
+  /* isolation: isolate; */
+  /* mix-blend-mode: color; */
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+.hero-text {
+  padding-top: calc(10vh / 2);
+}
+#title {
+  color: #121213;
+  font-size: 3.75rem;
+  display: flex;
+  position: relative;
+  z-index: 0;
+  justify-items: center;
+}
+
+#sub-title {
+  margin-top: -20px;
+  text-align: start;
+  position: relative;
+  color: #121213;
+  opacity: 0.6;
+  z-index: 0;
+  font-size: 1.25rem;
+}
+.world-heading {
+  font-size: 3.125rem;
+  text-align: left;
+  padding-left: 50px;
+  color: #121213;
+  line-height: 30px;
+}
+.num {
+  font-size: 1.5625rem;
+  color: #121213;
+}
+h3 {
+  font: 0.625rem;
+  color: #121213;
+}
+#Cases {
+  position: relative;
+  z-index: -10;
+  color: red;
+  /* isolation: isolate; */
+}
+#Recover {
+  position: relative;
+  z-index: -10;
+  color: #008000;
+  /* isolation: isolate; */
+}
+#Deads {
+  position: relative;
+  z-index: -10;
+  color: #ff6600;
+  /* isolation: isolate; */
+}
+#about-corona {
+  margin-top: calc(40vh / 2);
+}
+#text-about {
+  font-size: 1.25rem;
+  line-height: 30px;
+  text-align: left;
+}
+#more {
+  text-decoration: none;
+  background-color: #ff0000;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+@media (max-width: 950px) {
+  #lottie-human {
+    display: none;
+  }
+  .main {
+    margin-top: 100px;
+  }
+}
+.heading {
+  font-weight: 600;
+  color: #121213;
+  text-align: left;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.footer {
+  padding-top: 50px;
+  width: 100%;
+  /* height: 50vh; */
+  background-color: #121213;
+  color: white;
+}
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* width: ; */
+}
+textarea {
+  display: block;
+  outline: rgb(97, 97, 97) dashed 0px;
+  border-radius: 4px;
+  transition: all 0.2s linear 0s;
+  width: 100%;
+  padding-left: 15px;
+  padding-top: 4px;
+}
+textarea:hover {
+  box-shadow: rgba(18, 102, 241, 0.25) 0px 0px 0px 3.2px;
+  border: 1px solid #1266f1;
+}
