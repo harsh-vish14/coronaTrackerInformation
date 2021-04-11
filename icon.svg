@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <svg xmlns="http://www.w3.org/2000/svg" width="292" height="144" viewBox="0 0 292 144">
   <g id="Group_2" data-name="Group 2" transform="translate(-30 18)">
     <g id="Icon_ionic-md-stopwatch" data-name="Icon ionic-md-stopwatch" transform="translate(50.5 15.75)">
@@ -11,3 +12,18 @@
     <text id="ovid-19" transform="translate(114 81)" fill="#ec0101" font-size="67" font-family="BellMT, Bell MT"><tspan x="0" y="0">ovid-19</tspan></text>
   </g>
 </svg>
+=======
+<svg xmlns="http://www.w3.org/2000/svg" width="292" height="144" viewBox="0 0 292 144">
+  <g id="Group_2" data-name="Group 2" transform="translate(-30 18)">
+    <g id="Icon_ionic-md-stopwatch" data-name="Icon ionic-md-stopwatch" transform="translate(50.5 15.75)">
+      <path id="Path_1" data-name="Path 1" d="M16.313,30.167h6.536V12.375H16.313Z" transform="translate(11.063 9.482)" fill="#ec0101"/>
+      <g id="Group_1" data-name="Group 1" transform="translate(4.5 2.25)">
+        <path id="Path_2" data-name="Path 2" d="M51.294,16.863l4.192-4.192L50.865,8.05l-4.192,4.192a26.143,26.143,0,1,0,4.621,4.621ZM45.085,47.335a20.424,20.424,0,1,1,5.982-14.442A20.29,20.29,0,0,1,45.085,47.335Z" transform="translate(-4.5 1.964)" fill="#ec0101"/>
+        <path id="Path_3" data-name="Path 3" d="M13.5,2.25H30.929V8.786H13.5Z" transform="translate(3.929 -2.25)" fill="#ec0101"/>
+      </g>
+    </g>
+    <text id="C" transform="translate(30 91)" fill="#ec0101" font-size="130" font-family="BellMT, Bell MT"><tspan x="0" y="0">C</tspan></text>
+    <text id="ovid-19" transform="translate(114 81)" fill="#ec0101" font-size="67" font-family="BellMT, Bell MT"><tspan x="0" y="0">ovid-19</tspan></text>
+  </g>
+</svg>
+>>>>>>> origin/main

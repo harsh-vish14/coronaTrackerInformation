@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -387,4 +388,188 @@
   </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="virus-solid.svg" type="image/x-icon">
+
+  <title>Corona Virus Tracker/Doctor Appointment Page</title>
+  <!-- style sheets start-->
+  <!-- <link rel="stylesheet" href="css/navbar.css" /> -->
+  <!-- <link rel="stylesheet" href="css/index.css" /> -->
+  <!-- <link rel="stylesheet" href="css/doctor-appointment.css" /> -->
+  <!-- Style sheet end -->
+  <link rel="stylesheet" href="css/doctor-appointment.css">
+  <link rel="stylesheet" href="css/loader.css">
+
+  <!-- Font Awesome -->
+  <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- scripts -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+</head>
+<style>
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .nav-active,
+  .hovered:hover {
+    transform: translateY(-1px);
+    transition: 0.2s;
+    filter: drop-shadow(0px 0px 4px rgb(255, 230, 0));
+    font-weight: 900;
+  }
+</style>
+
+<body>
+  <div id="loader" style="text-align: center;">
+    <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_33xG9R.json" background="transparent"
+      speed="1" style="width: 300px; height: 300px;margin: auto;" loop autoplay id="loader-animation">
+    </lottie-player>
+    <br><span style="font-size: 50px;">Loading.....</span>
+  </div>
+
+  <section class="main">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html"><img src="icon.svg" alt="logo" height="30%" width="30%"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav" style="margin-left: 40%;">
+          <li class="nav-item hovered">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item nav-active">
+            <a class="nav-link" href="doctor-appointment.html">doctor <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="form-section">
+      <h2 style="text-align: center; color: #121213;">Doctor Appointment
+      </h2>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <form action="appointment_back.php" method="POST">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="exampleInputText">Name</label>
+                    <input class="form-control" type="text" placeholder="Full Name..." id="UserName" name="username"
+                      required><br>
+                    <label for="exampleInputNumber">Mobile Number</label>
+                    <input type="number" class="form-control" placeholder="Mobile Number." name="mobile" required><br>
+                    <div>
+                      <label for="exampleInputNumber">Age</label>
+                      <input type="number" class="form-control" placeholder="Enter Your age ." name="age" required>
+                      <br>
+                    </div>
+                  </div>
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" name="useremail" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group ">
+
+                  <div class="dropdown">
+                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select Symptoms
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Fever "><i class="fa fa-square-o fa-2x"></i><i
+                          class="fa fa-check-square-o fa-2x"></i><span>
+                          Fever</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Dry Cough "><i class="fa fa-square-o fa-2x"></i><i
+                          class="fa fa-check-square-o fa-2x"></i><span>
+                          Dry Cough</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Tiredness "><i class="fa fa-square-o fa-2x"></i><i
+                          class="fa fa-check-square-o fa-2x"></i><span>
+                          Tiredness</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Sore Throat "><i class="fa fa-square-o fa-2x"></i><i
+                          class="fa fa-check-square-o fa-2x"></i><span>
+                          Sore Throat</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Difficulty Breathing or Shortness of Breath "><i
+                          class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span>
+                          Difficulty Breathing or Shortness of Breath</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Chest Pain or Pressure "><i
+                          class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span>
+                          Chest Pain or Pressure</span>
+                      </label>
+                      <label class="btn dropdown-item">
+                        <input type="checkbox" name='sym[]' value=" Loss of Speech or Movement "><i
+                          class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span>
+                          Loss of Speech or Movement</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Extra Information
+                  </label>
+                  <textarea class="form-control" name="message" id="textarea"
+                    placeholder="Enter your Information.."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary send" onclick="sendEmail()" id="booking_appointment">Book
+                  Appointment <i class="fa fa-stethoscope" aria-hidden="true"></i></button>
+              </form>
+            </div>
+            <div class="col-lg-4" id="doctor-animation">
+
+              <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_42B8LS.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px;" loop autoplay id="doctor-animations">
+              </lottie-player>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="script/sendEmail.js"></script>
+  <script>
+    setTimeout(function () {
+      document.getElementById("loader").style.display = "none";
+    }, 2000)
+  </script>
+</body>
+
+>>>>>>> origin/main
 </html>
